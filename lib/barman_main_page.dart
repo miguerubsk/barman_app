@@ -16,16 +16,23 @@ class BarmanMainPage extends StatefulWidget {
 class _BarmanMainPageState extends State<BarmanMainPage> {
 
   int _activeCategory = 0;
+  static var pages = <Widget>[
+    RandomCocktailScreen(),
+    FavoriteScreen(),
+    SearchScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title),),
+      appBar: AppBar(title: Text('Monster Chef'),),
       body: pages[_activeCategory],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _activeCategory,
+        onTap: _changeActiveCategory,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.radar),
+            icon: Icon(Icons.all_inclusive_sharp),
             label: 'Selección',
           ),
           BottomNavigationBarItem(
@@ -41,14 +48,8 @@ class _BarmanMainPageState extends State<BarmanMainPage> {
     );
   }
 
-  static var pages = <Widget>[
-    RandomCocktailScreen(),
-    FavoriteScreen(),
-    SearchScreen(),
-  ];
-
-  void _alPulsar(int index) {
-    setState(() => _activeCategory = index);
+  void _changeActiveCategory(int indice) {
+    setState(() => _activeCategory = indice);
   }
 
 }
