@@ -1,5 +1,5 @@
-import 'package:barman_app/fav_list.dart';
-import 'package:barman_app/fav_screen_empty.dart';
+import 'package:barman_app/Models/fav_list.dart';
+import 'package:barman_app/Views/fav_screen_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +17,7 @@ class FavoriteScreen extends StatelessWidget {
     return Consumer<FavoriteList>(
       builder: (context, manager, child) {
         if(manager.cocktails.isNotEmpty){
-          return Container(color: Colors.blueGrey,);
+          return FavoriteScreenEmpty(favoriteList: manager,);
         } else {
           return const FavoriteScreenEmpty();
         }

@@ -1,4 +1,4 @@
-import 'package:barman_app/cocktail.dart';
+import 'package:barman_app/Models/cocktail.dart';
 import 'package:flutter/widgets.dart';
 
 

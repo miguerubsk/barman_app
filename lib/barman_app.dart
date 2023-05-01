@@ -1,6 +1,6 @@
-import 'package:barman_app/barman_app_theme.dart';
-import 'package:barman_app/barman_main_page.dart';
-import 'package:barman_app/fav_list.dart';
+import 'package:barman_app/Components/barman_app_theme.dart';
+import 'package:barman_app/Views/barman_main_page.dart';
+import 'package:barman_app/Models/fav_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

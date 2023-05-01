@@ -1,6 +1,6 @@
-import 'package:barman_app/fav_screen.dart';
-import 'package:barman_app/random_screen.dart';
-import 'package:barman_app/search_screen.dart';
+import 'package:barman_app/Views/fav_screen.dart';
+import 'package:barman_app/Views/random_screen.dart';
+import 'package:barman_app/Views/search_screen.dart';
 import 'package:flutter/material.dart';
 
 
