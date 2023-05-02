@@ -48,9 +48,9 @@ class Cocktail {
       instructionsEN: json['strInstructions'],
       instructionsES: json['strInstructionsES'],
       drinkThumb: json['strDrinkThumb'],
-      ingredients: List.unmodifiable(jIngredients);
-      measures: List.unmodifiable(jMeasures);
+      ingredients: List.unmodifiable(jIngredients),
+      measures: List.unmodifiable(jMeasures),
     );
-  };
+  }
 
 }
