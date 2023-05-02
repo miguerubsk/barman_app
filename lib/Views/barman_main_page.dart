@@ -25,7 +25,7 @@ class _BarmanMainPageState extends State<BarmanMainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Monster Chef'),),
+      appBar: AppBar(title: Text('Barman: Cocktail Recipes'),),
       body: pages[_activeCategory],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _activeCategory,
