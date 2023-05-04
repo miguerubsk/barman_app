@@ -19,7 +19,7 @@ class _BarmanMainPageState extends State<BarmanMainPage> {
   static var pages = <Widget>[
     RandomCocktailScreen(),
     FavoriteScreen(),
-    SearchScreen(),
+    const SearchScreen(),
   ];
 
   @override
