@@ -2,9 +2,11 @@ import 'package:barman_app/Models/cocktail.dart';
 import 'package:flutter/widgets.dart';
 
 
-class FavoriteList extends ChangeNotifier{
+class CocktailList extends ChangeNotifier{
   static final _cocktails = <Cocktail> [];
   List<Cocktail> get cocktails => List.unmodifiable(_cocktails);
+  bool get isNotEmpty => _cocktails.isNotEmpty;
+  bool get isEmpty => _cocktails.isEmpty;
 
   void removeCocktailAt(int index){
     if(_cocktails.isNotEmpty && _cocktails.length > index){

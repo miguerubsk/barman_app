@@ -17,9 +17,9 @@ class _BarmanMainPageState extends State<BarmanMainPage> {
 
   int _activeCategory = 0;
   static var pages = <Widget>[
-    RandomCocktailScreen(),
     FavoriteScreen(),
-    const SearchScreen(),
+    RandomCocktailScreen(),
+    SearchScreen(),
   ];
 
   @override
@@ -32,16 +32,16 @@ class _BarmanMainPageState extends State<BarmanMainPage> {
         onTap: _changeActiveCategory,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.all_inclusive_sharp),
-            label: 'Selección',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favoritos',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.all_inclusive_sharp),
+            label: 'Selección',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: 'Búsqueda',
+            label: 'Buscar',
           ),
         ],
       ),

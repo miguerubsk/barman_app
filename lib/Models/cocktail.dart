@@ -1,15 +1,15 @@
 class Cocktail {
-  int id;
-  String name;
-  String category;
-  String glass;
-  String alcoholic;
-  String instructionsEN;
-  String drinkThumb;
-  List<String> ingredients;
-  List<String> measures;
+  final int id;
+  final String name;
+  final String category;
+  final String glass;
+  final String alcoholic;
+  final String instructionsEN;
+  final String drinkThumb;
+  final List<String> ingredients;
+  final List<String> measures;
 
-  Cocktail({
+  const Cocktail({
     required this.id,
     required this.name,
     required this.category,

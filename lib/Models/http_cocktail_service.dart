@@ -14,14 +14,45 @@ class HttpCocktailService {
     }
   }
 
-  Future<List<Cocktail>> getCocktails(String url) async {
-    final readFromServer = await _loadFromHttp(url);
-    final Map<String, dynamic> json = jsonDecode(readFromServer);
-    if (json['drinks'] != null) {
-      final cocktails = <Cocktail>[];
-      for (var cocktail in json['drinks']) {
-        cocktails.add(Cocktail.fromJson(cocktail));
+  Future<List<Cocktail>> getCocktails(List<String> url) async {
+    final cocktails = <Cocktail>[];
+    try{
+      for (var search in url) {
+        final readFromServer = await _loadFromHttp('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=$search"');
+        final Map<String, dynamic> json = jsonDecode(readFromServer);
+        if (json['drinks'] != null) {
+          for (var cocktail in json['drinks']) {
+            cocktails.add(Cocktail.fromJson(cocktail));
+          }
+        }
       }
+    }catch (e){
+      print(e);
+    }
+    if (cocktails.isNotEmpty) {
+      return cocktails;
+    } else {
+      return [];
+    }
+  }
+
+  Future<List<Cocktail>> getAllCocktails() async {
+    final cocktails = <Cocktail>[];
+    var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    for (var letter in letters) {
+      final readFromServer = await _loadFromHttp("https://www.thecocktaildb.com/api/json/v1/1/search.php?f=$letter");
+      final Map<String, dynamic> json = jsonDecode(readFromServer);
+      if (json['drinks'] != null) {
+        for (var cocktail in json['drinks']) {
+          try{
+            cocktails.add(Cocktail.fromJson(cocktail));
+          }catch(e){
+            print(e);
+          }
+        }
+      }
+    }
+    if (cocktails.isNotEmpty) {
       return cocktails;
     } else {
       return [];

@@ -16,7 +16,7 @@ class FavoriteScreenEmpty extends StatelessWidget {
           ),
           const SizedBox(height: 16.0,),
           Text(
-            'Pulsa el botón ❤ de un cóctel para añadirlo',
+            'Pulsa el botón con la lupa añadir alguno',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
