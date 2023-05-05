@@ -1,7 +1,5 @@
-import 'package:barman_app/Models/cocktail_list.dart';
 import 'package:barman_app/Views/search_screen.dart';
 import 'package:barman_app/Views/random_screen.dart';
-import 'package:barman_app/Views/fav_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,9 +14,8 @@ class BarmanMainPage extends StatefulWidget {
 
 class _BarmanMainPageState extends State<BarmanMainPage> {
 
-  int _activeCategory = 2;
+  int _activeCategory = 0;
   static var pages = <Widget>[
-    FavoriteScreen(),
     RandomCocktailScreen(),
     SearchScreen(),
   ];
@@ -32,10 +29,6 @@ class _BarmanMainPageState extends State<BarmanMainPage> {
         currentIndex: _activeCategory,
         onTap: _changeActiveCategory,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favoritos',
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.all_inclusive_sharp),
             label: 'Selección',
