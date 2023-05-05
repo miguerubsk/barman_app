@@ -37,7 +37,7 @@ class SearchCocktailDelegate extends SearchDelegate<Cocktail> {
   @override
   Widget buildResults(BuildContext context) {
     // TODO: implement buildResults
-    return Center();
+    return CocktailGrid(cocktails: _filter,);
   }
 
   @override
@@ -46,20 +46,16 @@ class SearchCocktailDelegate extends SearchDelegate<Cocktail> {
     _filter = cocktails.cocktails.where((cocktail) {
       return cocktail.name.toLowerCase().contains(query.toLowerCase());
     }).toList();
+    _filter.addAll(
+      cocktails.cocktails.where((cocktail) {
+        return cocktail.ingredients.toString().toLowerCase().contains(query.toLowerCase());
+      }).toList()
+    );
     return CocktailGrid(cocktails: _filter,);
   }
 
   Widget buildGridSearch(){
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisExtent: 135,
-      ),
-      itemBuilder: (context, index){
-        return CocktailThumb(cocktail: _filter[index]);
-      },
-      itemCount: _filter.length,
-    );
+    return CocktailGrid(cocktails: _filter,);
   }
 
 }
