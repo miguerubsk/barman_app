@@ -8,8 +8,9 @@ class Cocktail {
   final String drinkThumb;
   final List<String> ingredients;
   final List<String> measures;
+  bool isFavorite;
 
-  const Cocktail({
+  Cocktail({
     required this.id,
     required this.name,
     required this.category,
@@ -19,6 +20,7 @@ class Cocktail {
     required this.drinkThumb,
     required this.ingredients,
     required this.measures,
+    required this.isFavorite,
   });
 
   factory Cocktail.fromJson(Map<String, dynamic> json) {
@@ -47,6 +49,7 @@ class Cocktail {
       drinkThumb: json['strDrinkThumb'],
       ingredients: List.unmodifiable(jIngredients),
       measures: List.unmodifiable(jMeasures),
+      isFavorite: false,
     );
   }
 
