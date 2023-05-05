@@ -1,11 +1,7 @@
 import 'package:barman_app/Components/cocktails_grid.dart';
 import 'package:barman_app/Models/cocktail_list.dart';
-import 'package:barman_app/Models/fav_list_add_cocktail.dart';
 import 'package:barman_app/Models/search_cocktail_delegate.dart';
-import 'package:barman_app/Views/fav_screen_empty.dart';
-import 'package:barman_app/Views/fav_screen_full.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../Models/http_cocktail_service.dart';
 
