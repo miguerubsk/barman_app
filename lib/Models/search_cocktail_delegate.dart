@@ -1,6 +1,9 @@
+import 'package:barman_app/Components/cocktails_grid.dart';
 import 'package:barman_app/Models/cocktail.dart';
 import 'package:barman_app/Models/cocktail_list.dart';
 import 'package:flutter/material.dart';
+
+import '../Components/cocktail_Thumb.dart';
 
 
 class SearchCocktailDelegate extends SearchDelegate<Cocktail> {
@@ -43,17 +46,19 @@ class SearchCocktailDelegate extends SearchDelegate<Cocktail> {
     _filter = cocktails.cocktails.where((cocktail) {
       return cocktail.name.toLowerCase().contains(query.toLowerCase());
     }).toList();
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: ListView.separated(
-        itemCount: _filter.length,
-        separatorBuilder: (context, index) {
-          return const SizedBox(height: 8.0,);
-        },
-        itemBuilder: (context, index) {
-          final cocktail = _filter[index];
-        },
+    return CocktailGrid(cocktails: _filter,);
+  }
+
+  Widget buildGridSearch(){
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisExtent: 135,
       ),
+      itemBuilder: (context, index){
+        return CocktailThumb(cocktail: _filter[index]);
+      },
+      itemCount: _filter.length,
     );
   }
 

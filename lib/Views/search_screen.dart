@@ -1,3 +1,4 @@
+import 'package:barman_app/Components/cocktails_grid.dart';
 import 'package:barman_app/Models/cocktail.dart';
 import 'package:barman_app/Models/cocktail_list.dart';
 import 'package:barman_app/Models/http_cocktail_service.dart';
@@ -29,14 +30,7 @@ class SearchScreen extends StatelessWidget {
           title: const Text('Search'),
         ),
       ),
-      body: ListView.builder(
-        itemCount: cocktailList.cocktails.length,
-        itemBuilder: (_, index) {
-          return ListTile(
-            title: Text(cocktailList.cocktails[index].name),
-          );
-        },
-      ),
+      body: CocktailGrid(cocktails: cocktailList.cocktails),
     );
   }
 }

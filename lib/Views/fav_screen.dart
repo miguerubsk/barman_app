@@ -1,6 +1,7 @@
 import 'package:barman_app/Components/cocktails_grid.dart';
 import 'package:barman_app/Models/cocktail_list.dart';
 import 'package:barman_app/Models/fav_list_add_cocktail.dart';
+import 'package:barman_app/Models/search_cocktail_delegate.dart';
 import 'package:barman_app/Views/fav_screen_empty.dart';
 import 'package:barman_app/Views/fav_screen_full.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class FavoriteScreen extends StatelessWidget {
                 cocktails.addCocktail(cocktail);
               }
               return Center(
-                child: CocktailGrid(cocktails: snapshot.data),
+                child: buildFavoriteScreen(context),
               );
             }
           } else {
@@ -43,9 +44,25 @@ class FavoriteScreen extends StatelessWidget {
       );
     }else{
       return Center(
-        child: CocktailGrid(cocktails: cocktails.cocktails,),
+        child: buildFavoriteScreen(context),
       );
     }
+  }
+
+  Widget buildFavoriteScreen(BuildContext context){
+    return Scaffold(
+      body: CocktailGrid(cocktails: cocktails.cocktails),
+      floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        onPressed: () {
+          showSearch(
+            context: context,
+            delegate: SearchCocktailDelegate(),
+          );
+        },
+        child: const Icon(Icons.search),
+      ),
+    );
   }
 
 }
