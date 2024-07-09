@@ -25,7 +25,6 @@ class SearchCocktailDelegate extends SearchDelegate<Cocktail> {
 
   @override
   Widget? buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
     return IconButton(
         onPressed: () {
           close(context, const Cocktail(id: 0, name: "name", category: "category", glass: "glass", alcoholic: "alcoholic", instructionsEN: "instructionsEN", drinkThumb: "drinkThumb", ingredients: [], measures: []));
@@ -36,7 +35,6 @@ class SearchCocktailDelegate extends SearchDelegate<Cocktail> {
 
   @override
   Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
     return CocktailGrid(cocktails: _filter,);
   }
 
